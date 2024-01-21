@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-2ze94o96k445m1c4tqo.mysql.rds.aliyuncs.com:3306/double_color
+    username: root
+    password: Passw0rd12@02
+
+mybatis:
+  mapper-locations: classpath:com/houzizhen/service/mapper/*.xml

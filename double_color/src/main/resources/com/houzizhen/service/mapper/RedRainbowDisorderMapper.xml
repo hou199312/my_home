@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 本映射文件对应GoodsDao接口 -->
+<mapper namespace="com.houzizhen.service.mapper.RedRainbowDisorderMapper">
+    <!-- 对应GoodsDao中的insert方法 -->
+    <insert id="insertAll" parameterType="com.houzizhen.service.pojo.RedRainbowDisorder">
+        insert into t_red_rainbow_disorder
+        values
+        <foreach collection="list" item="item" separator=",">
+            (null,#{item.red1},#{item.red2},#{item.red3},#{item.red4},#{item.red5},#{item.red6})
+        </foreach>
+    </insert>
+
+
+
+
+
+
+
+</mapper>

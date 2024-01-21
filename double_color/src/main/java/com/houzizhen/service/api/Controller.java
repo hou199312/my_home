@@ -2,10 +2,11 @@ package com.houzizhen.service.api;
 
 import com.alibaba.excel.EasyExcel;
 import com.houzizhen.service.excel.DemoDataListener;
+import com.houzizhen.service.mapper.LotteryResultMapper;
 import com.houzizhen.service.mapper.RedRainbowDisorderMapper;
 import com.houzizhen.service.pojo.RedRainbowDisorder;
 import com.houzizhen.service.pojo.TwoColor;
-import com.houzizhen.service.utils.MyUtils;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 @RestController
@@ -21,6 +21,15 @@ import java.util.Random;
 public class Controller {
     @Autowired
     RedRainbowDisorderMapper redRainbowDisorderMapper;
+
+    @Autowired
+    LotteryResultMapper lotteryResultMapper;
+
+    @GetMapping("init-double-color")
+    public void initLotteryResults() {
+        String fileName = "E:\\500w.xlsx";
+        EasyExcel.read(fileName, TwoColor.class, new DemoDataListener(lotteryResultMapper)).sheet().doRead();
+    }
 
     @GetMapping("/get")
     public void getNumber() {

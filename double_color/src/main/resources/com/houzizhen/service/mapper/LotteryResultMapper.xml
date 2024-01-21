@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.houzizhen.service.mapper.LotteryResultMapper">
+
+    <insert id="insertAll" parameterType="com.houzizhen.service.pojo.LotteryResult">
+        insert into t_lottery_result
+        values
+        <foreach collection="list" item="item" separator=",">
+            (null,#{item.issue},#{item.red1},#{item.red2},#{item.red3},#{item.red4},#{item.red5},#{item.red6},#{item.blue})
+        </foreach>
+    </insert>
+</mapper>

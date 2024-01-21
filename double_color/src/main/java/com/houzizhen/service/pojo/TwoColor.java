@@ -5,10 +5,10 @@ import lombok.Data;
 
 @Data
 public class TwoColor {
-    @ExcelProperty("id")
-    private String id;
+    @ExcelProperty("issue")
+    private String issue;
     @ExcelProperty("url")
     private String url;
-    @ExcelProperty("result")
+    @ExcelProperty("开奖结果")
     private String result;
 }

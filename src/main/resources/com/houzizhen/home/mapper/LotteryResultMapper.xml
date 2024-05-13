@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.houzizhen.home.mapper.LotteryResultMapper">
+
+    <insert id="insertLotteryResult" parameterType="com.houzizhen.home.model.LotteryResult">
+        INSERT INTO t_lottery_result (issue, red_1, red_2, red_3, red_4, red_5, red_6, blue)
+        VALUES (#{issue}, #{red1}, #{red2}, #{red3}, #{red4}, #{red5}, #{red6}, #{blue})
+    </insert>
+
+    <update id="updateLotteryResult">
+        UPDATE t_lottery_result
+        SET issue = #{result.issue},
+            red_1 = #{result.red1},
+            red_2 = #{result.red2},
+            red_3 = #{result.red3},
+            red_4 = #{result.red4},
+            red_5 = #{result.red5},
+            red_6 = #{result.red6},
+            blue = #{result.blue}
+        WHERE id = #{result.id}
+    </update>
+
+    <delete id="deleteLotteryResult">
+        DELETE FROM t_lottery_result
+        WHERE id = #{id}
+    </delete>
+
+    <select id="getLotteryResultById" resultType="com.houzizhen.home.model.LotteryResult">
+        SELECT * FROM t_lottery_result
+        WHERE id = #{id}
+    </select>
+
+    <select id="getAllLotteryResults" resultType="com.houzizhen.home.model.LotteryResult">
+        SELECT * FROM t_lottery_result order by issue desc
+    </select>
+
+</mapper>

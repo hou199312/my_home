@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.houzizhen.home.mapper.BlueRainbowMapper">
+
+
+    <insert id="insert" parameterType="com.houzizhen.home.model.BlueRainbow">
+        INSERT INTO t_blue_rainbow(blue_1, blue_2, blue_3)
+        VALUES (#{blue1}, #{blue2}, #{blue3})
+    </insert>
+
+
+</mapper>

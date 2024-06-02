@@ -9,6 +9,15 @@ import java.util.List;
 @Mapper
 public interface LotteryResultMapper {
     void insertLotteryResult(LotteryResult result);
+
     LotteryResult getLotteryResultByIssue(@Param("issue") int issue);
+
     List<LotteryResult> getAllLotteryResults();
+
+    /**
+     * 获取最新的一条数据
+     *
+     * @return 最新一条数据
+     */
+    LotteryResult getLastLotteryResult();
 }

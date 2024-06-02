@@ -17,4 +17,10 @@
         </foreach>
     </insert>
 
+    <select id="selectByIssue" resultType="string">
+        SELECT result
+        FROM t_analyze_blue
+        WHERE issue = #{issue}
+    </select>
+
 </mapper>

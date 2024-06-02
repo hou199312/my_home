@@ -25,4 +25,11 @@ public interface LotteryResultService {
     Integer calculateBonus(UserLottery userLottery);
 
     Integer machineSelection(Integer count);
+
+    /**
+     * 获取最新的开奖结果
+     *
+     * @return 最新的开奖结果
+     */
+    LotteryResult getLastLotteryResult();
 }

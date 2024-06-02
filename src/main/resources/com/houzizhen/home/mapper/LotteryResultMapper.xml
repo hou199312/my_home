@@ -19,5 +19,11 @@
         FROM t_lottery_result
     </select>
 
+    <select id="getLastLotteryResult" resultType="com.houzizhen.home.model.LotteryResult">
+        SELECT *
+        FROM t_lottery_result
+        order by id DESC limit 1
+    </select>
+
 
 </mapper>

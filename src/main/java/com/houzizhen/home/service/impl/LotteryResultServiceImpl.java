@@ -20,10 +20,12 @@ import java.util.Random;
 @Service
 public class LotteryResultServiceImpl implements LotteryResultService {
     private final LotteryResultMapper mapper;
+    private final LotteryResultMapper lotteryResultMapper;
 
     @Autowired
-    public LotteryResultServiceImpl(LotteryResultMapper mapper) {
+    public LotteryResultServiceImpl(LotteryResultMapper mapper, LotteryResultMapper lotteryResultMapper) {
         this.mapper = mapper;
+        this.lotteryResultMapper = lotteryResultMapper;
     }
 
     @Override
@@ -138,6 +140,11 @@ public class LotteryResultServiceImpl implements LotteryResultService {
         Random random = new Random();
         int i = random.nextInt(1107568) + 1;
         return 0;
+    }
+
+    @Override
+    public LotteryResult getLastLotteryResult() {
+       return lotteryResultMapper.getLastLotteryResult();
     }
 
 }

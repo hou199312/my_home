@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.houzizhen.home.mapper.BlueRandomMapper">
+    <select id="getCount" resultType="int">
+        select conunt(*) from t_blue_random
+    </select>
+
+    <select id="selectAll" resultType="com.houzizhen.home.model.BlueRandom">
+        select *
+        from t_blue_random
+    </select>
+
+</mapper>

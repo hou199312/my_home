@@ -2,7 +2,6 @@ package com.houzizhen.home.time;
 
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
-import com.github.pagehelper.PageInfo;
 import com.houzizhen.home.model.LotteryResult;
 import com.houzizhen.home.service.LotteryResultService;
 import com.houzizhen.home.utils.HttpClientUtil;
@@ -41,10 +40,8 @@ public class CrawlDataTime {
     public void getLotteryResult() throws IOException {
         log.info("定时任务正在运行, 当前时间：{}", new Date());
         // 获取数据库的最大数据库期号
-        PageInfo<LotteryResult> allLotteryResults = lotteryResultService.getAllLotteryResults(1, 1);
-        LotteryResult lotteryResult = allLotteryResults.getList().get(0);
+        LotteryResult lotteryResult = lotteryResultService.getLastLotteryResult();
         int issue = lotteryResult.getIssue();
-
         // 发送http请求,获取最近的数据期号
         String s = HttpClientUtil.sendHttpGetRequest(ssqUrl);
         JSONObject jsonObject = JSONObject.parseObject(s);
